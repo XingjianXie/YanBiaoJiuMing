@@ -34,7 +34,7 @@ jobs:
         cat > index.md <<EOL
         ## YanBiaoJiuMing Online
         <p>
-        <input class="content" placeholder="Content">
+        <textarea class="content" placeholder="Content"></textarea>
         </p>
         <p>
         <input class="seed" placeholder="Seed">
@@ -45,7 +45,7 @@ jobs:
         <p>
         <button class="shuffle">Shuffle</button>
         </p>
-        <input class="result">
+        <textarea class="result"></textarea>
         <p>
         <script src="YanBiaoJiuMing.js"></script>
         </p>

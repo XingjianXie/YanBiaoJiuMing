@@ -11,7 +11,7 @@ import (
 func Main() {
 	d := dom.GetWindow().Document()
 	d.QuerySelector(".shuffle").AddEventListener("click", false, func(event dom.Event) {
-		content := []rune(d.QuerySelector(".content").(*dom.HTMLInputElement).Value)
+		content := []rune(d.QuerySelector(".content").(*dom.HTMLTextAreaElement).Value)
 		seed, err := strconv.ParseInt(d.QuerySelector(".seed").(*dom.HTMLInputElement).Value, 10, 64)
 		size, err := strconv.Atoi(d.QuerySelector(".size").(*dom.HTMLInputElement).Value)
 		if seed == 0 || err != nil {
@@ -22,6 +22,6 @@ func Main() {
 		}
 		r := rand.New(rand.NewSource(seed))
 		shuffle.Shuffle(content, r, size) // 执行打乱
-		d.QuerySelector(".result").(*dom.HTMLInputElement).Value = string(content)
+		d.QuerySelector(".result").(*dom.HTMLTextAreaElement).Value = string(content)
 	})
 }
