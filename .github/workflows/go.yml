@@ -21,8 +21,8 @@ jobs:
     - name: Install gopherjs
       run: go install github.com/gopherjs/gopherjs
     
-    - name: Gopherjs get
-      run: gopherjs get github.com/mark07x/YanBiaoJiuMing
+    - name: Go get
+      run: go get github.com/mark07x/YanBiaoJiuMing
             
     - name: Build
       run: gopherjs build -m github.com/mark07x/YanBiaoJiuMing
