@@ -41,7 +41,7 @@ func openFile(path string, empty *os.File, flag int, name string) *os.File {
 		f = empty
 	} else {
 		var err error
-		f, err = os.OpenFile(path, flag, 0) // 打开文件
+		f, err = os.OpenFile(path, flag, os.ModePerm) // 打开文件
 		if err != nil {
 			log.Fatal("failed to open " + name + " file") // 错误处理
 		}
@@ -103,7 +103,7 @@ func main() {
 	flag.Parse() // 处理程序的命令行参数
 	r := newRand() // 获取一个rand.Rand实例
 	inputFile := openFile(inputPath, os.Stdin, os.O_RDONLY, "input") // O_RDONLY代表只读
-	outputFile := openFile(outputPath, os.Stdout, os.O_WRONLY, "output") // O_WRONLY代表只写
+	outputFile := openFile(outputPath, os.Stdout, os.O_CREATE | os.O_WRONLY, "output") // 只写，不存在则创建新文件
 	content := readFile(inputFile) // 用刚刚的文件进行读取（如果是标准输入，也以同样方式读取）
 	shuffle(content, r) // 执行打乱
 	writeFile(outputFile, content) // 写入文件（如果是标准输出，也以同样方式写入）
