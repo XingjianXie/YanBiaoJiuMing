@@ -33,12 +33,22 @@ jobs:
         pwd
         cat > index.md <<EOL
         ## YanBiaoJiuMing Online
-        <input class="content">
-        <input class="seed">
-        <input class="size">
+        <p>
+        <input class="content" placeholder="Content">
+        </p>
+        <p>
+        <input class="seed" placeholder="Seed">
+        </p>
+        <p>
+        <input class="size" placeholder="Size">
+        </p>
+        <p>
         <button class="shuffle">Shuffle</button>
+        </p>
         <input class="result">
+        <p>
         <script src="YanBiaoJiuMing.js"></script>
+        </p>
         EOL
         cat > _config.yml <<EOL
         ## YanBiaoJiuMing Online
