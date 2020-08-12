@@ -27,14 +27,7 @@ jobs:
     - name: Build
       run: gopherjs build -m github.com/mark07x/YanBiaoJiuMing
     
-    - name: GH Release
-      uses: softprops/action-gh-release@v0.1.5
-      if:
-        startsWith(github.ref, 'refs/tags/')
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: GitHub Pages
+      uses: crazy-max/ghaction-github-pages@v2.1.2
       with:
-        prerelease: true
-        files: 
-          ./YanBiaoJiuMing.js
-          ./YanBiaoJiuMing.js.map
+        build_dir: .
