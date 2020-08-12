@@ -27,9 +27,27 @@ jobs:
     - name: Build
       run: gopherjs build -m github.com/mark07x/YanBiaoJiuMing
     
+    - name: Gen dummy page
+      run: |
+        mkdir public
+        cat > index.md <<EOL
+        ## YanBiaoJiuMing Online
+        <input class="content">
+        <input class="seed">
+        <input class="size">
+        <button class="shuffle">Shuffle</button>
+        <input class="result">
+        <script src="YanBiaoJiuMing.js"></script>
+        EOL
+        cat > _config.yml <<EOL
+        ## YanBiaoJiuMing Online
+        theme: jekyll-theme-cayman
+        EOL
+    
     - name: GitHub Pages
       uses: crazy-max/ghaction-github-pages@v2.1.2
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
+        target_branch: gh-pages
         build_dir: .
