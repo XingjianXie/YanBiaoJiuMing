@@ -74,7 +74,7 @@ func shuffleSlice(content []rune, r *rand.Rand) {
 
 func structureChar(char rune) bool {
 	switch char {
-	case '是', '和', '与', '我', '你', '她', '会', '不', '好', '用', '有', '的':
+	case '是', '和', '与', '我', '你', '她', '会', '不', '好', '用', '有', '的', '在', '这', '那', '还', '又', '而', '之':
 		return true
 	}
 	return false
